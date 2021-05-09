@@ -31,6 +31,7 @@ class HttpRepository
   end
 
   def self.get_commit(sha)
+    Rails.logger.info "GET COMMIT #{sha}"
     HTTParty.get("#{URL}/commits/#{sha}", headers: HEADERS)
   end
 end
