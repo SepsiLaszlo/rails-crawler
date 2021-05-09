@@ -7,7 +7,10 @@ class HttpRepository
   def self.get_pull_requests
     raw_pull_requests = HTTParty.get(URL + '/pulls', headers: HEADERS)
     raw_pull_requests.map do |pull_request|
-      PullRequest.new(number: pull_request['number'], html_url: pull_request['html_url'])
+      PullRequest.new(
+        number: pull_request['number'],
+        html_url: pull_request['html_url'],
+        title: pull_request['title'])
     end
   end
 
