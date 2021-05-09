@@ -1,6 +1,19 @@
 <h1>Pull Requests</h1>
-<% @pull_requests.each do |pull_request| %>
-  <%= link_to pull_request.number, pull_request.html_url %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">A file changed multiple time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pull_requests.each do |pull_request|  %>
+    <tr>
+      <td><%= pull_request.title %></td>
+      <td class="text-align-end"><%= pull_request.files_changed_multiple_times? %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
