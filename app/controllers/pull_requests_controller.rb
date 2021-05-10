@@ -5,4 +5,9 @@ class PullRequestsController < ApplicationController
       pull_request.files_changed_multiple_times? ? 0 : 1
     end
   end
+
+  def show
+    number = params[:number]
+    @pull_request = HttpRepository.get_pull_request(number)
+  end
 end
