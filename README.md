@@ -1,24 +1,32 @@
-# README
+# Rails Crawler
+This application crawls the official Rails repository throughout the GitHub API. It lists the open pull requests and shows which pull request have files that have been changed by multiple commits.
+```sh
+   _      _
+  (<      >)
+   `O,99,O`
+  //-\__/-\\  
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Set up
+The application uses `ruby 2.7.1`. You can install the correct ruby version natively or use it with RVM:
+```sh
+rvm use 2.7.1
+```
 
-Things you may want to cover:
+Then install the dependencies:
+```sh
+bundle install
+```
 
-* Ruby version
+Set up the database:
 
-* System dependencies
+```sh
+rails db:setup
+```
 
-* Configuration
+Now you can start the rails server:
+```shell
+rails server
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Check the application on http://localhost:3000
