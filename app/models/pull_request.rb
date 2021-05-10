@@ -1,9 +1,16 @@
 class PullRequest < ApplicationRecord
+  Change = Struct.new(:file_name, :commits)
+
+  def self.create_from_json(json)
+    new(
+      number: json['number'],
+      html_url: json['html_url'],
+      title: json['title'])
+  end
+
   def commits
     @commits ||= HttpRepository.get_commits_for_pull_request(number)
   end
-
-  Change = Struct.new(:file_name, :commits)
 
   def change_list
     return @change_list if @change_list
@@ -17,7 +24,7 @@ class PullRequest < ApplicationRecord
       end
     end
 
-    @change_list = changes_by_file_name.map{|k,v| Change.new(k, v)}
+    @change_list = changes_by_file_name.map { |k, v| Change.new(k, v) }
   end
 
   def files_changed_multiple_times?
