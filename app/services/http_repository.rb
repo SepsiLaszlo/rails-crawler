@@ -1,5 +1,4 @@
 class HttpRepository
-  # URL = 'https://api.github.com/repos/SepsiLaszlo/tc-rails-crawler'
   URL = 'https://api.github.com/repos/rails/rails'
 
   HEADERS = {
