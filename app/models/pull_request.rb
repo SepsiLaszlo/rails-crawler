@@ -2,10 +2,9 @@ class PullRequest < ApplicationRecord
   Change = Struct.new(:file_name, :commits)
 
   def self.create_from_json(json)
-    new(
-      number: json['number'],
-      html_url: json['html_url'],
-      title: json['title'])
+    new(number: json['number'],
+        html_url: json['html_url'],
+        title: json['title'])
   end
 
   def commits
