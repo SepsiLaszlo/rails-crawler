@@ -7,6 +7,13 @@ This application crawls the official Rails repository throughout the GitHub API.
   //-\__/-\\  
 ```
 
+## Some picture from the app:
+Index page for pull requests:
+![index](images/index.png)
+
+Show page for a pull request:
+![show](images/show.png)
+
 ## Set up
 The application can exceed the open request limit on the GiHub API.
 Provide an OAuth Personal Access Token in the `.env` file to allow more request for the application. Basic repository read rights are enough.
