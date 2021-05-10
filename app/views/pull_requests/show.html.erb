@@ -1,0 +1,14 @@
+<h1><%= @pull_request.title %></h1>
+<ul class="list-group">
+  <% @pull_request.change_list.sort_by{ |change|
+    -change.commits.count }.each do |change| %>
+    <li class="list-group-item">
+      <p><%= change.file_name %></p>
+      <ul class="list-group">
+        <% change.commits.each do |commit| %>
+          <li class="list-group-item"><%= link_to commit.message, commit.html_url %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

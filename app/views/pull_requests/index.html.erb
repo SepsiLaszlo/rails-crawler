@@ -3,13 +3,13 @@
   <thead>
     <tr>
       <th scope="col">Title</th>
-      <th scope="col">A file changed multiple time</th>
+      <th scope="col">A file changed multiple times</th>
     </tr>
   </thead>
   <tbody>
     <% @pull_requests.each do |pull_request|  %>
     <tr>
-      <td><%= pull_request.title %></td>
+      <td><%= link_to pull_request.title, pull_path(pull_request.number) %></td>
       <td class="text-align-end"><%= pull_request.files_changed_multiple_times? %></td>
     </tr>
     <% end %>
